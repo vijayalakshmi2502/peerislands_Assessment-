@@ -2,16 +2,16 @@ package CodeBase;
 
 import java.util.List;
 
-public class Main {
+public class Main { 
     public static void main(String[] args) {
        
-        String path = "C:/Users/lahar/OneDrive/Pictures/Lahari Kancharla/ProjectCloning/SakilaProject";
+        String path = "C:\\Users\\user\\Pictures\\ProjectCloning\\SakilaProject";
 
        
         List<String> files = CodeReader.readJavaFiles(path);
         StringBuilder combinedKnowledge = new StringBuilder();
 
-       
+      
         for (String code : files) {
             try {
                 String knowledge = OpenAIClient.extractKnowledge(code);
@@ -20,8 +20,9 @@ public class Main {
                 System.out.println("Error analyzing code: " + e.getMessage());
             }
         }
-
         
         JsonWriter.writeAnalysisToFile(combinedKnowledge.toString());  
     }
 }
+           
+       
